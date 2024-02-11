@@ -51,8 +51,10 @@ this.productShocase=document.getElementById(productShocasee)
     }
 
     removeIteam(event){
-       console.log(event.target.parentNOde);
-
+     if (event.target.getAttribute("id")==="remove") {
+       event.target.parentNode.parentNode.remove()
+        
+     }
     }
    
 }
@@ -68,4 +70,4 @@ addButton.addEventListener("click",()=>{
     todoOne.addIteam()
 })
 // remove Button
-document.getElementById("remove") && addEventListener("click",(event)=>todoOne.removeIteam(event))
+document.getElementById("placeForShowcase").addEventListener("click",(event)=>todoOne.removeIteam(event))
