@@ -19,14 +19,14 @@ this.productShocase=document.getElementById(productShocasee)
         newElement.classList.add("w-full")
         newElement.innerHTML=`
         <div class="shadow-lg rounded-md bg-[#ffffffca] p-4 w-full  space-y-3">
-        <h1 class="text-center font-bold" id="title-text">${this.titleField.value}</h1>
+        <h1 class="text-center font-bold text-wrap break-all" id="title-text">${this.titleField.value}</h1>
         <hr>
-        <p>${this.titleField.value}</p>
+        <p class="text-wrap break-all">${this.textField.value}</p>
         <div class="flex justify-center gap-2">
             <button id="editButton" type="button"
                 class="p-1 text-white bg-green-600 w-full rounded-md mt-2 ">Edit
                 Iteam</button>
-            <button type="button" class="p-1 text-white bg-red-600 w-full rounded-md mt-2 ">Remove
+            <button id="remove" type="button" class="p-1 text-white bg-red-600 w-full rounded-md mt-2 ">Remove
                 Iteam</button>
         </div>
     </div>
@@ -37,6 +37,7 @@ this.productShocase=document.getElementById(productShocasee)
             this.textField.style.outline=`none`;
             this.titleField.value=""
             this.textField.value=""
+            
         }else{
           
             if (this.titleField.value=="") {
@@ -47,6 +48,11 @@ this.productShocase=document.getElementById(productShocasee)
             }
         }
        
+    }
+
+    removeIteam(event){
+       console.log(event.target.parentNOde);
+
     }
    
 }
@@ -61,3 +67,5 @@ todoOne.titleField.addEventListener("keyup",todoOne.validation)
 addButton.addEventListener("click",()=>{
     todoOne.addIteam()
 })
+// remove Button
+document.getElementById("remove") && addEventListener("click",(event)=>todoOne.removeIteam(event))
